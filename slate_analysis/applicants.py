@@ -230,9 +230,12 @@ st.set_page_config(
 
 with st.sidebar:
     st.markdown(f"""
-        <p style="font-size: 10px; color: #B6B6B6; margin-top: -15px; margin-bottom: 10px; text-align: center;">
-            &copy; 2025 - Dongying Tao<br>
+        <p style="font-size: 12px; color: #B6B6B6; margin-top: -15px; margin-bottom: 20px; text-align: center;">
+            &copy; 2025 - Dongying Tao
+            <br>
             All rights reserved.
+            <br>
+            Version Date: Aug 26, 2025
         </p>""", unsafe_allow_html=True)
     uploaded_file = st.file_uploader("Upload an Excel file", type=["xlsx", "xls"])
     if uploaded_file:
