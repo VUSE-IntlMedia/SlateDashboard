@@ -278,7 +278,7 @@ if curr_yr:
     # TOP: Header & Facts
     with st.container():
         # Header
-        top_header, top_color, top_swap = st.columns([4, 1, 0.2])
+        top_header, top_color, top_reverse = st.columns([4, 1, 0.2])
         program_text = "VUSE All Programs" if isinstance(program_selected, list) else program_selected
         top_header.markdown(f"""
             <p style='font-size:23px; line-height:1; margin-bottom:10px; text-align:left;'>
@@ -286,24 +286,22 @@ if curr_yr:
             </p>
         """, unsafe_allow_html=True)
         with top_color:
-            st.selectbox(
+            colorscale = st.selectbox(
                 "Colors",
                 colors,
                 index=0,
                 label_visibility="collapsed",
-                placeholder="Choose your preferred color theme...",
-                key="colorscale"
+                placeholder="Choose your preferred color theme..."
             )
-        with top_swap:
-            st.pills(
+        with top_reverse:
+            color_reversed = st.pills(
                 "Swapped",
                 options=[":material/swap_vert:"],
                 selection_mode="single",
-                label_visibility="collapsed",
-                key="swapped"
+                label_visibility="collapsed"
             )
-            if st.session_state["swapped"]:
-                colorscale = f"{st.session_state["colorscale"]}_r"
+            if color_reversed:
+                colorscale = f"{colorscale}_r"
         rgb_picked = [rgb for i, rgb in plotly.colors.get_colorscale(colorscale)]
 
         # Facts
