@@ -256,7 +256,7 @@ with st.sidebar:
         submits = create_details_submit(df, years=year_options, programs=program_options, degrees=degree_options)
         decides = create_details_decide(df, years=year_options, programs=program_options, degrees=degree_options)
 
-        year_all_on = st.toggle("All Years", value=True)
+        year_all_on = st.toggle("Current Years", value=True)
         if not year_all_on:
             year_options_defined = [y for i, y in enumerate(year_options) if i != len(year_options)-1]
             curr_yr = st.pills("Year:", year_options_defined, selection_mode="single", label_visibility="collapsed")
